@@ -33,7 +33,7 @@ public class IAService {
 
         HttpEntity<Map<String,Object>> requestEntity = new HttpEntity<>(requestBody,headers);
 
-        ResponseEntity<Map> response = restTemplate.postForEntity(OPENAI_URL,requestEntity,Map.class);
+        ResponseEntity<Map> response = restTemplate.postForEntity("OPENAI_URL",requestEntity,Map.class);
 
         if (response.getStatusCode().is2xxSuccessful()){
           List<Map<String,Object>> choices = (List<Map<String, Object>>) response.getBody().get("choices");
