@@ -22,7 +22,7 @@ public class IAService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-      //  headers.setBearerAuth(MI_API_KEY);
+        headers.setBearerAuth("MI_API_KEY");
 
         Map<String, Object>requestBody = Map.of(
                 "model","gpt-3.5-turbo",
@@ -33,7 +33,7 @@ public class IAService {
 
         HttpEntity<Map<String,Object>> requestEntity = new HttpEntity<>(requestBody,headers);
 
-        ResponseEntity<Map> response = restTemplate.postForEntity(OPENAI_URL,requestEntity,Map.class);
+        ResponseEntity<Map> response = restTemplate.postForEntity("OPENAI_URL",requestEntity,Map.class);
 
         if (response.getStatusCode().is2xxSuccessful()){
           List<Map<String,Object>> choices = (List<Map<String, Object>>) response.getBody().get("choices");
