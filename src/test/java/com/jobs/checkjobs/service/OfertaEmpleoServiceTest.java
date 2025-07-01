@@ -8,11 +8,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.util.List;
 
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class OfertaEmpleoServiceTest {
@@ -44,5 +44,30 @@ public class OfertaEmpleoServiceTest {
 
         assertEquals(oferta,resultado);
         verify(ofertaEmpleoRepository).save(oferta);
+    }
+
+    @Test
+    void eliminarOfertaEmpleo_deberiaEliminarCuandoExiste(){
+        Long id = 1L;
+
+        when(ofertaEmpleoRepository.existsById(id)).thenReturn(true);
+
+        boolean resultado = ofertaEmpleoService.eliminarOfertaEmpleo(id);
+
+        assertTrue(resultado);
+        verify(ofertaEmpleoRepository).deleteById(id);
+    }
+
+    @Test
+    void eliminarOfertaEmpleo_deberiaRetornarFalseCuandoNoExiste(){
+        Long id = 2L;
+
+        when(ofertaEmpleoRepository.existsById(id)).thenReturn(false);
+
+
+        boolean resultado = ofertaEmpleoService.eliminarOfertaEmpleo(id);
+
+        assertFalse(resultado);
+        verify(ofertaEmpleoRepository, never()).deleteById(anyLong());
     }
 }

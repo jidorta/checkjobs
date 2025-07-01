@@ -21,4 +21,22 @@ public class OfertaEmpleoService {
     public OfertaEmpleo crearOferta(OfertaEmpleo oferta){
         return ofertaEmpleoRepository.save(oferta);
     }
+
+    public OfertaEmpleo actualizar(Long id, OfertaEmpleo ofertaNueva){
+        return ofertaEmpleoRepository.findById(id)
+                .map(ofertaExistente ->{
+                    ofertaExistente.setTitulo(ofertaNueva.getTitulo());
+                    ofertaExistente.setSalario(ofertaNueva.getSalario());
+                    return ofertaEmpleoRepository.save(ofertaExistente);
+                })
+                .orElse(null);
+    }
+
+    public boolean eliminarOfertaEmpleo(Long id){
+        if(ofertaEmpleoRepository.existsById(id)){
+            ofertaEmpleoRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }
