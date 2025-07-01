@@ -17,4 +17,8 @@ public class OfertaEmpleoService {
     public List<OfertaEmpleo> obtenerTodas(){
         return ofertaEmpleoRepository.findAll();
     }
+
+    public OfertaEmpleo crearOferta(OfertaEmpleo oferta){
+        return ofertaEmpleoRepository.save(oferta);
+    }
 }
