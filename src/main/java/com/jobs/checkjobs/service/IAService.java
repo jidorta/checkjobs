@@ -13,6 +13,8 @@ import java.util.Map;
 
 @Service
 public class IAService {
+    public IAService(String s) {
+    }
 
     private final RestTemplate restTemplate = new RestTemplate();
 
@@ -41,5 +43,12 @@ public class IAService {
           return(String) message.get("content");
         }
         return "No se pudo generar la descripción";
+    }
+
+    public String consultaIA(String prompt){
+
+        // Aquí llamas al cliente OpenAI con la apiKey
+        // Por simplicidad devolvemos un dummy:
+        return "Respuesta simulada para; "+ prompt;
     }
 }
