@@ -38,7 +38,7 @@ public class OfertaController {
         return ResponseEntity.ok(actualizada);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id){
         boolean eliminado = ofertaEmpleoService.eliminarOfertaEmpleo(id);
         if(!eliminado){

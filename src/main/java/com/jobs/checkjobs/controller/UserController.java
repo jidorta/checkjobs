@@ -16,9 +16,9 @@ public class UserController {
     }
 
     @PostMapping
-   /* public User crearUsuarioConOfertas(@RequestBody User user){
+    public User crearUsuarioConOfertas(@RequestBody User user){
         return userService.crearUsuarioConOfertas(user, user.getOfertasPublicadas());
-    }*/
+    }
 
     @GetMapping
     public List<User> listarUsuarios(){

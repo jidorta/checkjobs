@@ -1,5 +1,7 @@
 package com.jobs.checkjobs.service;
 
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +15,14 @@ import java.util.Map;
 
 @Service
 public class IAService {
-    public IAService(String s) {
+
+    private final String claveIA;
+
+    public IAService(@Value("${clave.ia}")String claveIA) {
+        this.claveIA = claveIA;
     }
+
+
 
     private final RestTemplate restTemplate = new RestTemplate();
 
@@ -50,5 +58,13 @@ public class IAService {
         // Aquí llamas al cliente OpenAI con la apiKey
         // Por simplicidad devolvemos un dummy:
         return "Respuesta simulada para; "+ prompt;
+    }
+
+    public String getClaveIA() {
+        return claveIA;
+    }
+
+    public RestTemplate getRestTemplate() {
+        return restTemplate;
     }
 }

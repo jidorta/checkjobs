@@ -23,6 +23,15 @@ public class User {
     @OneToMany(mappedBy = "creador", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<OfertaEmpleo> ofertasPublicadas;
 
+    public User() {
+    }
+
+    public User(Long id, String nombre, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+    }
+
     public Long getId() {
         return id;
     }

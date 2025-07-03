@@ -24,6 +24,14 @@ public class OfertaEmpleo {
     @JoinColumn(name ="user_id")
     private User creador;
 
+    public OfertaEmpleo(Long id, String titulo) {
+        this.id = id;
+        this.titulo = titulo;
+    }
+
+    public OfertaEmpleo() {
+    }
+
     public Long getId() {
         return id;
     }

@@ -1,63 +1,38 @@
-# CheckJobs 🧠💼
+# CheckJobs
 
-Aplicación backend en Java desarrollada con Spring Boot para gestión de ofertas de empleo, usuarios y validación con OpenAI.
+Proyecto de gestión de ofertas de empleo y usuarios desarrollado con Java y Spring Boot.
 
-## 🚀 Tecnologías utilizadas
+## Tecnologías usadas
 
 - Java 17
-- Spring Boot 3
-- Spring Data JPA
-- PostgreSQL
-- OpenAI API
+- Spring Boot 2.7.x
+- JPA / Hibernate
+- H2 Database (para pruebas)
+- JUnit 5 + Mockito (para tests)
 - Maven
-- Docker (opcional)
-- Lombok
 
-## 📁 Estructura del proyecto
-src
-├── main
-│ ├── java
-│ │ └── com.jobs.checkjobs
-│ │ ├── controller
-│ │ ├── dto
-│ │ ├── model
-│ │ ├── repository
-│ │ ├── service
-│ │ └── CheckjobsApplication.java
-│ └── resources
-│ ├── application.properties
-│ └── data.sql (opcional)
-└── test
+## Cómo ejecutar
 
-## ⚙️ Configuración
+1. Clonar el repositorio  
+2. Ejecutar con Maven:  
+  
+  
+  Funcionalidades principales
+  
+Gestión de usuarios
 
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/jidorta/checkjobs.git
-   cd checkjobs
+Publicación y gestión de ofertas de empleo
 
-   Configurar variable de entorno para la API de OpenAI:
+Aplicación a ofertas por parte de usuarios
 
-export OPENAI_API_KEY=tu_clave_aquí
+Test unitarios para servicios y controladores
 
-application.properties:
+Tests
+Los tests están en el paquete /src/test/java
 
-spring.datasource.url=jdbc:postgresql://localhost:5432/checkjobs
-spring.datasource.username=postgres
-spring.datasource.password=1234
+Se usan JUnit 5 y Mockito
 
-./mvnw spring-boot:run
+Para ejecutar tests: mvn test
 
-Integración con OpenAI
-La app valida ciertos datos usando la API de OpenAI para ofrecer respuestas inteligentes, por ejemplo:
-
-Validación de descripciones de ofertas
-
-Recomendaciones automáticas
-
-📦 Endpoints REST
-Método	Ruta	Descripción
-GET	/api/jobs	Lista todas las ofertas
-POST	/api/jobs	Crea una nueva oferta
-...	...	Por completar según avance
-
+Contacto
+Para cualquier duda o comentario: ibandorta@gmail.com
